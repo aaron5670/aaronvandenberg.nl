@@ -13,4 +13,4 @@ export const Contact = () => (
       <img src={contact} alt="I’m Aaron and I’m a student Web Developer!" />
     </Thumbnail>
   </Wrapper>
-)
+);
