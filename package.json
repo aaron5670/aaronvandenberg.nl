@@ -21,7 +21,6 @@
     "gatsby-plugin-sitemap": "^2.0.3",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-remark-images-contentful": "^2.1.30",
-    "gatsby-source-contentful": "^2.1.77",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-source-graphql": "^2.1.21",
     "gatsby-transformer-sharp": "^2.3.12",
