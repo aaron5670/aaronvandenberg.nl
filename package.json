@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "description": "Aaron's developers portfolio",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Aaron van den Berg <a.vdberg98@gmail.com>",
   "dependencies": {
     "dotenv": "^6.2.0",
