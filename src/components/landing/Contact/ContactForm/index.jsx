@@ -17,8 +17,6 @@ const ContactForm = ({
 
 	const submitForm = async (event) => {
 		event.preventDefault();
-        console.log(URL)
-        console.log(PORT)
 		if (values.name && values.email && values.message && !errors.message && !errors.email && !errors.recaptcha) {
             const url = `${URL}:${PORT}/portfolio-contact`;
             const response = await fetch(url, {
