@@ -15,10 +15,10 @@ const ContactForm = ({
                          touched,
                      }) => {
 
-	const submitForm = async (event) => {
-		event.preventDefault();
-		if (values.name && values.email && values.message && !errors.message && !errors.email && !errors.recaptcha) {
-            const url = `${URL}:${PORT}/portfolio-contact`;
+    const submitForm = async (event) => {
+        event.preventDefault();
+        if (values.name && values.email && values.message && !errors.message && !errors.email && !errors.recaptcha) {
+            const url = `${URL}:${PORT}/api/v1/contact/send`;
             const response = await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(values),
@@ -37,17 +37,17 @@ const ContactForm = ({
                 touched.name = false;
                 touched.email = false;
                 touched.message = false;
-            }else {
+            } else {
                 errors.message = 'Something went wrong, please try again!'
             }
         }
-	};
+    };
 
     return (
         <Form
             name="portfolio-dev"
             method="post"
-			onSubmit={submitForm}
+            onSubmit={submitForm}
         >
             <InputField>
                 <Input
@@ -89,15 +89,15 @@ const ContactForm = ({
                 <ErrorMessage component={Error} name="message"/>
             </InputField>
             {values.name && values.email && values.message && (
-            	<InputField>
-            		<FastField
-            			component={Recaptcha}
-            			sitekey={recaptcha_key}
-            			name="recaptcha"
-            			onChange={value => setFieldValue('recaptcha', value)}
-            		/>
-            		<ErrorMessage component={Error} name="recaptcha" />
-            	</InputField>
+                <InputField>
+                    <FastField
+                        component={Recaptcha}
+                        sitekey={recaptcha_key}
+                        name="recaptcha"
+                        onChange={value => setFieldValue('recaptcha', value)}
+                    />
+                    <ErrorMessage component={Error} name="recaptcha"/>
+                </InputField>
             )}
             {values.success && (
                 <InputField>

@@ -39,7 +39,7 @@ build/Release
 node_modules/
 jspm_packages/
 
-# Typescript v1 declaration files
+# Typescript init declaration files
 typings/
 
 # Optional npm cache directory
@@ -75,5 +75,5 @@ yarn-error.log
 yarn.lock
 
 now.json
-/portfolio-server/config.js
-/config.js
+/server/config/config.js
+
