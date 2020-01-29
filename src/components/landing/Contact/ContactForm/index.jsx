@@ -18,7 +18,7 @@ const ContactForm = ({
     const submitForm = async (event) => {
         event.preventDefault();
         if (values.name && values.email && values.message && !errors.message && !errors.email && !errors.recaptcha) {
-            const url = `${URL}:${PORT}/api/v1/contact/send`;
+            const url = `${URL}:${PORT}/contact/send`;
             const response = await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(values),
