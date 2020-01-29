@@ -1,16 +1,14 @@
 const express = require('express');
 const init = express.Router();
-const path = require('path');
 const contactRoute = require('./contact');
 
-init.get('/', (req, res) => {
-    res.json({
-        description: 'Portfolio API server'
-    })
-});
+init.get('/', (req, res) => res.json({
+    method: 'GET',
+    url: '/'
+}));
 
 /*
- * Define all API routes
+ * Define all routes
  */
 init.use('/contact', contactRoute);
 

@@ -1,11 +1,12 @@
 const express = require('express');
-const srvConfig = require('../../../config/config');
+const srvConfig = require('../config/config');
 const nodeMailer = require('nodemailer');
 const contact = express.Router();
 
 contact.get('/', (req, res) => {
     res.json({
-        description: 'Contact server API'
+        method: 'GET',
+        url: '/contact'
     })
 });
 
@@ -30,9 +31,7 @@ const sendEmail = ($subject, $message) => {
 contact.post('/send', (req, res) => {
     const {name, email, message, recaptcha, success} = req.body;
 
-    console.log(req.body)
-
-    if (name && email && message && recaptcha && success) {
+    if (name && email && message && recaptcha) {
         const body = `
             <b>Naam:</b> ${name}<br/>
             <b>Email:</b> ${email}<br/><br/>
