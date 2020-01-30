@@ -3,7 +3,7 @@ import {Button} from '../../../../components/common'
 import {ErrorMessage, LoginWrapper} from './styles'
 import {Center, InputField} from '../../Contact/ContactForm/styles';
 import {Input} from '../../../common/Input';
-import {PORT, URL} from "../../../../../config";
+import {handleLogin} from "../../../../services/auth";
 
 export const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -12,32 +12,14 @@ export const LoginForm = () => {
 
     const submitForm = async (event) => {
         event.preventDefault();
-
         if (username && password) {
-            const url = `${URL}:${PORT}/auth/login`;
-            const options = {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: username,
-                    password: password,
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                credentials: 'include',
-                mode: 'cors'
-            };
-            const response = await fetch(url, options);
-            const data = await response.json();
-            if (response.status === 200) {
-                console.log(data);
-                setPassword(''); //Empty password
-                return data
-            } else {
-                setPassword(''); //Empty password
+            const isAuthenticated = await handleLogin(username, password);
+
+            if (!isAuthenticated)
                 setAuthError(true);
-                console.log(data)
-            }
+
+            //Empty password
+            setPassword('');
         }
     };
 

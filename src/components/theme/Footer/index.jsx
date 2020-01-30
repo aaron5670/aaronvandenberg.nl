@@ -1,9 +1,10 @@
 import React from 'react';
 import {Container} from '../../../components/common';
-import {Link} from 'gatsby'
+import {Link, navigate} from 'gatsby'
 import {Wrapper, Flex, Links, Details} from './styles';
 import GitHubLogo from '../../../assets/icons/github.svg'
 import LoginIcon from '../../../assets/icons/login.svg'
+import {getUser, logout} from "../../../services/auth";
 
 export const Footer = () => (
     <Wrapper>
@@ -27,9 +28,20 @@ export const Footer = () => (
                    aria-label={`follow me on GitHub`}>
                     <img width="24" src={GitHubLogo} alt={'GitHub'}/>
                 </a>
-                <Link to={'/login'} style={{marginLeft: 20}}>
-                    <img width="24" src={LoginIcon} alt={'GitHub'}/>
-                </Link>
+
+                {getUser().username ?
+                    <>
+                        <Link to={"/"} style={{margin: '0 0 5px 10px'}} onClick={event => {
+                            event.preventDefault();
+                            logout(() => navigate(`/`))
+                        }}
+                        >Logout</Link>
+                    </>
+                    :
+                    <Link to={'/login'} style={{marginLeft: 20}}>
+                        <img width="24" src={LoginIcon} alt={'GitHub'}/>
+                    </Link>
+                }
             </Links>
         </Flex>
     </Wrapper>
