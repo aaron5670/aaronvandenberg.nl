@@ -1,10 +1,13 @@
 import React, { Component } from "react"
-import { navigate } from "gatsby"
+import {navigate} from "gatsby-link";
 import { isLoggedIn } from "../services/auth"
 
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
-    if (!isLoggedIn() && location.pathname !== `/app/login`) {
-        navigate("/login");
+    if (!isLoggedIn()) {
+        if (typeof window !== 'undefined') {
+            navigate('/login');
+        }
+
         return null
     }
 
