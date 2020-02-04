@@ -44,5 +44,6 @@ export const Footer = () => (
                 }
             </Links>
         </Flex>
+        {/*<p style={{textAlign: "center", margin: "1rem 0 0 0"}}><i>At the moment there are <b>4</b> more people here</i></p>*/}
     </Wrapper>
 );
