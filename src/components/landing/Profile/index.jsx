@@ -3,7 +3,6 @@ import {getUser} from "../../../services/auth";
 import {Details, IntroWrapper, Wrapper} from "../Login/styles";
 import {Header} from "../../theme/Header";
 import {Container} from "../../common/Container";
-import {LoginForm} from "../Login/LoginForm";
 
 const Index = () => (
 

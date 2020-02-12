@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import {navigate} from "gatsby-link";
 import { isLoggedIn } from "../services/auth"
 
