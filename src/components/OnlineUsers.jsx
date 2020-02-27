@@ -15,10 +15,17 @@ const OnlineUsers = (props) => {
         props.setOnlineUsers(data.users);
     });
 
+    const userOrUsers = () => {
+        if (props.onlineUsers > 1)
+            return 'There are currently ' + props.onlineUsers + ' users online! 😃'
+        else
+            return 'You are currently the only online user 😃'
+    };
+
     return (
         <OnlineUsersBlock>
             <ReactTooltip place={'left'}/>
-            <p data-tip={'There are currently ' + props.onlineUsers + ' users online! 😃'}>
+            <p data-tip={userOrUsers()}>
                 <span style={{fontSize: '20px'}}>
                     {props.onlineUsers} <FontAwesomeIcon icon={faUsers} color={'#6C63FF'}/>
                 </span>
