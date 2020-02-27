@@ -57,12 +57,16 @@ httpsServer.listen(srvConfig.PORT, () =>
 /*
  * Socket.IO section
  */
-var io = require('socket.io')(httpsServer);
-var clients = 0;
+const io = require('socket.io')(httpsServer);
+let clients = 0;
 io.on('connection', function (socket) {
     console.log('New connection');
     clients++;
-    io.sockets.emit('broadcast', {users: clients});
+
+    // Added a delay of 350ms
+    setTimeout(() => {
+        io.sockets.emit('broadcast', {users: clients});
+    }, 350);
 
     socket.on('disconnect', function () {
         clients--;
