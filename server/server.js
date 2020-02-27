@@ -70,7 +70,8 @@ io.on('connection', function (socket) {
 
     socket.on('disconnect', function () {
         clients--;
-        console.log('connection left');
+        console.log('Connection left');
         io.sockets.emit('broadcast', {users: clients});
     });
 });
+
