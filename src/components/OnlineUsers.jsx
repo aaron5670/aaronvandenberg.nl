@@ -5,8 +5,9 @@ import {OnlineUsersBlock} from "./common/OnlineUsersBlock";
 import ReactTooltip from 'react-tooltip'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUsers} from '@fortawesome/free-solid-svg-icons'
+import {PORT, URL} from "../../config";
 
-const socketEndPoint = 'https://aaronvandenberg.nl:3005';
+const socketEndPoint = `${URL}:${PORT}`;
 const socket = socketIOClient(socketEndPoint);
 
 const OnlineUsers = (props) => {
