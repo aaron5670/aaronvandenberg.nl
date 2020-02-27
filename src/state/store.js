@@ -1,15 +1,16 @@
-import { createStore as reduxCreateStore } from "redux"
+import {createStore as reduxCreateStore} from "redux";
 
+const initialState = {onlineUsers: 0};
+
+//ToDo: Add Immer (https://immerjs.github.io/immer/)
 const reducer = (state, action) => {
-    if (action.type === `INCREMENT`) {
+    if (action.type === `SET_ONLINE_USERS`) {
         return Object.assign({}, state, {
-            count: state.count + 1,
+            onlineUsers: action.users,
         })
     }
     return state
-}
+};
 
-const initialState = { count: 0 }
-
-const createStore = () => reduxCreateStore(reducer, initialState)
+const createStore = () => reduxCreateStore(reducer, initialState);
 export default createStore
