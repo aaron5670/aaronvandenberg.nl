@@ -3,6 +3,7 @@ import {navigate} from "gatsby-link";
 import {Layout, SEO} from '../components/common';
 import {Login} from '../components/landing/Login';
 import {isLoggedIn} from "../services/auth";
+import OnlineUsers from "../components/OnlineUsers";
 
 export default () => {
     if (isLoggedIn())
@@ -11,6 +12,7 @@ export default () => {
     return (
         <Layout>
             <SEO title={'Aaron van den Berg - Login'}/>
+            <OnlineUsers/>
             <Login/>
         </Layout>
     );

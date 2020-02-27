@@ -6,7 +6,6 @@ import {Container} from "../../common/Container";
 import OnlineUsers from "../../OnlineUsers";
 
 const Index = () => (
-
         <Wrapper>
             <Header/>
             <IntroWrapper as={Container}>
@@ -17,10 +16,8 @@ const Index = () => (
                     </ul>
                 </Details>
             </IntroWrapper>
-
             <OnlineUsers/>
         </Wrapper>
-
-)
+);
 
 export default Index
