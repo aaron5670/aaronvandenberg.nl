@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const https = require('https');
-const WebSocket = require('ws');
 const passport = require('passport');
 const cors = require('cors');
 const fs = require('fs');
@@ -49,46 +48,25 @@ const httpsServer = https.createServer({
     ca: ca
 }, app);
 
-// Create the Web socket server.
-const server = https.createServer({
-    cert: certificate,
-    key: privateKey,
-});
-const websocketServer = new WebSocket.Server({server});
-
-//Upgrade the protocol
-httpsServer.on('upgrade', (req, networkSocket, head) => {
-    sessionParser(req, {}, () => {
-        websocketServer.handleUpgrade(req, networkSocket, head, newWebSocket => {
-            websocketServer.emit('connection', newWebSocket, req);
-        });
-    });
-});
-
-let wsConnections = 0;
-websocketServer.on('connection', (socket, req) => {
-    wsConnections++;
-    websocketServer.clients.forEach(function each(client) {
-        if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify({
-                currentConnections: wsConnections,
-            }));
-        }
-    });
-
-    socket.on('close', function close() {
-        wsConnections--;
-        websocketServer.clients.forEach(function each(client) {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send(JSON.stringify({
-                    currentConnections: wsConnections,
-                }));
-            }
-        });
-    })
-});
-
 // Start the server
 httpsServer.listen(srvConfig.PORT, () =>
     console.log(`Portfolio server listening on port ${srvConfig.PORT}!`)
 );
+
+
+/*
+ * Socket.IO section
+ */
+var io = require('socket.io')(httpsServer);
+var clients = 0;
+io.on('connection', function (socket) {
+    console.log('New connection');
+    clients++;
+    io.sockets.emit('broadcast', {users: clients});
+
+    socket.on('disconnect', function () {
+        clients--;
+        console.log('connection left');
+        io.sockets.emit('broadcast', {users: clients});
+    });
+});
