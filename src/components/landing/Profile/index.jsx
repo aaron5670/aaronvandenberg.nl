@@ -3,6 +3,7 @@ import {getUser} from "../../../services/auth";
 import {Details, IntroWrapper, Wrapper} from "../Login/styles";
 import {Header} from "../../theme/Header";
 import {Container} from "../../common/Container";
+import OnlineUsers from "../../OnlineUsers";
 
 const Index = () => (
 
@@ -16,6 +17,8 @@ const Index = () => (
                     </ul>
                 </Details>
             </IntroWrapper>
+
+            <OnlineUsers/>
         </Wrapper>
 
 )
