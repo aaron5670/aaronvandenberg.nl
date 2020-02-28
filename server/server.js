@@ -68,10 +68,13 @@ io.on('connection', function (socket) {
         io.sockets.emit('broadcast', {users: clients});
     }, 350);
 
-    socket.on('disconnect', function () {
+    socket.on("sendCustomMessage", (data) => {
+        io.sockets.emit('broadcastReceivedMessage', {msg: data.msg});
+    });
+
+    socket.on('disconnect', () => {
         clients--;
         console.log('Connection left');
         io.sockets.emit('broadcast', {users: clients});
     });
 });
-

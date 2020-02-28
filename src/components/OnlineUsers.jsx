@@ -1,14 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {connect} from "react-redux"
-import socketIOClient from 'socket.io-client'
 import {OnlineUsersBlock} from "./common/OnlineUsersBlock";
 import ReactTooltip from 'react-tooltip'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUsers} from '@fortawesome/free-solid-svg-icons'
-import {PORT, URL} from "../../config";
-
-const socketEndPoint = `${URL}:${PORT}`;
-const socket = socketIOClient(socketEndPoint);
+import {socket} from "../services/socket";
 
 const OnlineUsers = (props) => {
     socket.on('broadcast', (data) => {
