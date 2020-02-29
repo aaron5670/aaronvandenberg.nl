@@ -1,6 +1,17 @@
 # Web Developer portfolio website
 This is my personal portfolio website build with GatsbyJS and a small ExpressJS server.
 
+### Features
+- React 16.x
+- Gatsby framework
+- PWA (desktop & mobile)
+- Frontend design by [@smakosh](https://github.com/smakosh/)
+- Amazing illustrations by [Undraw.co](https://undraw.co/)
+- Express as backend framework
+- Socket.IO intergration (realtime online users counter & notifications)
+- Simple authentication system with PassportJS
+- Contact form with Google reCAPTCHA
+
 ### Prerequirements
 1. Latest [Node.js](https://nodejs.org/en/) version
 2. [GatsbyJS](https://www.gatsbyjs.org/)
@@ -49,3 +60,7 @@ module.exports = {EMAIL, EMAIL_PASSWORD, PORT, SESSION_SECRET, isHTTPS, privateK
 ``node server.js``
 7. Finally you start the app in the root folder by doing:
 8. ``gatsby develop``
+
+
+### Preview
+![Website Aaron van den Berg](https://github.com/aaron5670/aaronvandenberg.nl/blob/v2/screenshot.png?raw=true)
