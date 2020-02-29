@@ -5,6 +5,7 @@ This is my personal portfolio website build with GatsbyJS and a small ExpressJS 
 - React 16.x
 - Gatsby framework
 - PWA (desktop & mobile)
+- Functional components with Recompose React Hooks
 - Frontend design by [@smakosh](https://github.com/smakosh/)
 - Amazing illustrations by [Undraw.co](https://undraw.co/)
 - Express as backend framework
