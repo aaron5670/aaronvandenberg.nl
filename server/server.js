@@ -1,12 +1,13 @@
 'use strict';
 const express = require('express');
+const http = require('http');
 const https = require('https');
 const passport = require('passport');
 const cors = require('cors');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const srvConfig = require('./config/config');
+const srvConfig = require('./config');
 const route = require('./routes/init');
 
 // Define Express
@@ -20,7 +21,6 @@ app.options('*', cors({
 }));
 
 // Session middleware
-// WebSocket server, to give socket-handlers access to the session.
 const sessionParser = session({
     secret: srvConfig.SESSION_SECRET,
     resave: false,
@@ -36,28 +36,32 @@ app.use(bodyParser.json());
 // Routes
 app.use('/', route);
 
-// SSL Certificate
-const privateKey = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/cert.pem', 'utf8');
-const ca = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/chain.pem', 'utf8');
+let httpServer;
+if (srvConfig.isHTTPS) {
+    const privateKey = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/privkey.pem', 'utf8');
+    const certificate = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/cert.pem', 'utf8');
+    const ca = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/chain.pem', 'utf8');
 
-// Create a HTTPS server
-const httpsServer = https.createServer({
-    key: privateKey,
-    cert: certificate,
-    ca: ca
-}, app);
+    // Create a HTTPS server
+    httpServer = https.createServer({
+        key: privateKey,
+        cert: certificate,
+        ca: ca
+    }, app);
+} else {
+    // Create a HTTP server
+    httpServer = http.createServer({}, app);
+}
 
 // Start the server
-httpsServer.listen(srvConfig.PORT, () =>
+httpServer.listen(srvConfig.PORT, () =>
     console.log(`Portfolio server listening on port ${srvConfig.PORT}!`)
 );
-
 
 /*
  * Socket.IO section
  */
-const io = require('socket.io')(httpsServer);
+const io = require('socket.io')(httpServer);
 let clients = 0;
 io.on('connection', function (socket) {
     console.log('New connection');

@@ -1,5 +1,5 @@
 const express = require('express');
-const srvConfig = require('../config/config');
+const srvConfig = require('../config');
 const nodeMailer = require('nodemailer');
 const contact = express.Router();
 

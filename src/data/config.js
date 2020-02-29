@@ -4,7 +4,7 @@ module.exports = {
   author: 'Aaron van den Berg',
   url: 'https://aaronvandenberg.nl/',
   legalName: 'Aaron van den Berg',
-  defaultDescription: 'I’m Aaron van den Berg and I’m a student Web Developer at the HAN in Arnhem.',
+  defaultDescription: 'I’m Aaron van den Berg and I’m a student Web Developer at the HAN in Arnhem. Skilled in PHP, SQL, NoSQL, Javascript (ES6), NodeJS & React.',
   socialLinks: {
     github: 'https://github.com/aaron5670',
     linkedin: 'https://www.linkedin.com/in/aaron-van-den-berg-a0406112a/',
