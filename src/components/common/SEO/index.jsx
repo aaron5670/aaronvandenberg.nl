@@ -47,7 +47,7 @@ export const SEO = ({
 			"${socialLinks.instagram}",
 			"${socialLinks.github}"
 		]
-  	}`
+  	}`;
 
   return (
     <Helmet>
