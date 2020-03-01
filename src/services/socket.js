@@ -6,7 +6,6 @@ export const socket = socketIOClient(`${URL}:${PORT}`);
 
 export const receivedSocketMessages = () => {
     socket.on('broadcastReceivedMessage', (data) => {
-        console.log(data)
         return toast("🦄 " + data.msg);
     });
 };
