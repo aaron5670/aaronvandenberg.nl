@@ -73,7 +73,7 @@ io.on('connection', function (socket) {
     }, 350);
 
     socket.on("sendCustomMessage", (data) => {
-        io.sockets.emit('broadcastReceivedMessage', {msg: data.msg});
+        socket.broadcast.emit('broadcastReceivedMessage', {msg: data.msg});
     });
 
     socket.on('disconnect', () => {

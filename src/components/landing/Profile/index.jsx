@@ -6,6 +6,7 @@ import {Container} from "../../common/Container";
 import {Button} from "../../common/Button";
 import OnlineUsers from "../../OnlineUsers";
 import {socket} from "../../../services/socket";
+import {toast} from "react-toastify";
 
 const Index = () => {
     const [message, setMessage] = useState('');
@@ -26,7 +27,10 @@ const Index = () => {
                            placeholder={'Send a message to everybody`s browser console!'}
                            onChange={e => setMessage(e.target.value)}
                     />
-                    <Button onClick={() => socket.emit('sendCustomMessage', {msg: message})}>
+                    <Button onClick={() => {
+                        socket.emit('sendCustomMessage', {msg: message});
+                        toast("🦄 " + message);
+                    }}>
                         Broadcast
                     </Button>
 
