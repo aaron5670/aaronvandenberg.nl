@@ -65,14 +65,16 @@ const IndexPage = () => {
             })
         }
     } else {
-        if (isError) return  ErrorNotification();
+        if (error) return ErrorNotification();
         return <p>Loading projects...</p>;
     }
 };
 
 const ErrorNotification = () => (
     <p>Error while fetching GitHub repositories from user
-        <a href={`https://github.com/${GITHUB_USERNAME}`} target={'_blank'}> {GITHUB_USERNAME}</a>.
+        <a href={`https://github.com/${GITHUB_USERNAME}`}
+           target={'_blank'}
+           rel="noopener noreferrer"> {GITHUB_USERNAME}</a>.
     </p>
 );
 
