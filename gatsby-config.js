@@ -40,11 +40,11 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: config.defaultTitle,
-        short_name: 'starter',
+        short_name: 'Portfolio',
         start_url: '/',
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: 'minimal-ui',
+        display: 'standalone',
         icon: './static/favicon/favicon-512.png',
       },
     },
