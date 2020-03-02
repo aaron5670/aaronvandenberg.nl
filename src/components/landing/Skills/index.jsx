@@ -13,7 +13,7 @@ export const Skills = () => (
       <Details>
         <h1>Hi There!</h1>
         <p>
-          I'm a 21 years old student from The Netherlands. My skills and interest in web development are Javascript (ES6), ReactJS, React Native & PHP.
+          I'm a 21 years old student from The Netherlands. My skills and interest in web development are Javascript (ES6+), Node.JS, React (Native), SQL, NoSQL & PHP.
         </p>
         <Button as={AnchorLink} href="#contact">
           Contact me
