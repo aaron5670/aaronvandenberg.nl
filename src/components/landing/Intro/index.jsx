@@ -1,7 +1,7 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Container, Button } from '../../../components/common'
-import dev from '../../../assets/illustrations/dev.svg'
+import dev from '../../../assets/illustrations/mobile-dev.svg'
 import { Wrapper, IntroWrapper, Details, Thumbnail } from './styles'
 import {Header} from '../../theme/Header';
 
