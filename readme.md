@@ -31,13 +31,13 @@ const PORT = 3005;
 /*
  * Email settings
  */
-const EMAIL = 'a.vdberg98@gmail.com';
-const EMAIL_PASSWORD = 'gskpglglrxxaparx';
+const EMAIL = 'your@email.com';
+const EMAIL_PASSWORD = 'your-mail-password';
 
 /*
  * Session settings
  */
-const SESSION_SECRET = 'Z>==B)$u(iEH6k&m';
+const SESSION_SECRET = 'Zsjfkrkwujskcfjskw&m';
 
 /*
  * SSL / HTTPS settings
