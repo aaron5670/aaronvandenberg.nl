@@ -38,9 +38,9 @@ app.use('/', route);
 
 let httpServer;
 if (srvConfig.isHTTPS) {
-    const privateKey = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/privkey.pem', 'utf8');
-    const certificate = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/cert.pem', 'utf8');
-    const ca = fs.readFileSync('/opt/psa/var/modules/letsencrypt/etc/live/aaronvandenberg.nl/chain.pem', 'utf8');
+    const privateKey = fs.readFileSync(srvConfig.privateKey_path, 'utf8');
+    const certificate = fs.readFileSync(srvConfig.certificate_path, 'utf8');
+    const ca = fs.readFileSync(srvConfig.ca_path, 'utf8');
 
     // Create a HTTPS server
     httpServer = https.createServer({
