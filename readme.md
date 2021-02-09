@@ -64,4 +64,4 @@ module.exports = {EMAIL, EMAIL_PASSWORD, PORT, SESSION_SECRET, isHTTPS, privateK
 
 
 ### Preview
-![Website Aaron van den Berg](https://github.com/aaron5670/aaronvandenberg.nl/blob/v2/screenshot.png?raw=true)
+![Website Aaron van den Berg](https://github.com/aaron5670/aaronvandenberg.nl/blob/master/screenshot.png?raw=true)
