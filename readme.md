@@ -1,3 +1,5 @@
+![Website Aaron van den Berg](https://github.com/aaron5670/aaronvandenberg.nl/blob/master/screenshot.png?raw=true)
+
 # Web Developer portfolio website
 This is my personal portfolio website build with GatsbyJS and a small ExpressJS server.
 
@@ -61,7 +63,3 @@ module.exports = {EMAIL, EMAIL_PASSWORD, PORT, SESSION_SECRET, isHTTPS, privateK
 ``node server.js``
 7. Finally you start the app in the root folder by doing:
 8. ``gatsby develop``
-
-
-### Preview
-![Website Aaron van den Berg](https://github.com/aaron5670/aaronvandenberg.nl/blob/master/screenshot.png?raw=true)
